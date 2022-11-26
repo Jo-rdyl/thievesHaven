@@ -1,0 +1,44 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: Ubuntu, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: Mojangles;
+  src: url(../public/fonts/Mojangles-Regular.ttf);
+}
+
+@font-face {
+  font-family: Mojangles;
+  font-weight: bold;
+  src: url(../public/fonts/Mojangles-Bold.ttf);
+}
+
+@font-face {
+  font-family: Ubuntu;
+  font-weight: bold;
+  src: url(../public/fonts/Ubuntu-Bold.ttf);
+}
+
+@font-face {
+  font-family: Ubuntu;
+  font-weight: bold;
+  font-style: italic;
+  src: url(../public/fonts/Ubuntu-BoldItalic.ttf);
+}
+
+@font-face {
+  font-family: Ubuntu;
+  font-style: italic;
+  src: url(../public/fonts/Ubuntu-Italic.ttf);
+}
+
+@font-face {
+  font-family: Ubuntu;
+  src: url(../public/fonts/Ubuntu-Regular.ttf);
+}
