@@ -1,39 +1,51 @@
 import Head from 'next/head';
 import styles from '../styles/index.module.scss';
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useRef } from 'react';
+import { useEffect } from 'react';
 
 
 const Page = () => {
   return (
-    <div>
+    <>
       <Head>
         <title>thievesHaven</title>
       </Head>
-      <>
-        <h1>Hello World!</h1>
-        <p className={styles.one}>Hello <span>World</span></p>
-        <p className={styles.two}>Hello <span>World</span></p>
-        <p className={styles.three}>Hello <span>World</span></p>
-        <p className={styles.four}>Hello <span>World</span></p>
-        <Box />
-      </>
-    </div>
+      <Header />
+      <p className={styles.one}>Hello <span>World</span></p>
+      <p className={styles.two}>Hello <span>World</span></p>
+      <p className={styles.three}>Hello <span>World</span></p>
+      <p className={styles.four}>Hello <span>World</span></p>
+      <ArtStuff />
+    </>
   );
 };
 
-const Box = () => {
-  const [phase,setPhase] = useState(0);
+const Header = () => {
+  return (
+    <header className={styles.Header}>
+      <h1>Hello World!</h1>
+    </header>
+  );
+};
+
+const ArtStuff = () => {
+  const [dimensions,setDimensions] = useState({
+    height: 0,
+    width: 0,
+  });
+  const ref = useRef(null);
+
+  useEffect(() => {
+    setDimensions({
+      height: ref.current!['clientHeight'], width: ref.current!['clientWidth']
+    });
+  });
 
   return (
-    <>
-      <div style={{borderRadius: `${phase}%`}} className={styles.box} onMouseOver={() => {
-        if (phase == 50) {
-          setPhase(phase - 50)
-        } else {
-          setPhase(phase + 12.5)
-        }
-      }}></div>
-    </>
+    <div className={styles.ArtStuff} ref={ref}>
+      <p>The height is {dimensions.height} and the width is {dimensions.width}</p>
+    </div>
   )
 }
 
