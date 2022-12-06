@@ -1,3 +1,19 @@
+.Header {
+  h1 {
+    color: tomato;
+  }
+}
+
+.ArtStuff {
+  background-color: #1b1b2b;
+  height: 100vh;
+  width: 100vw;
+
+  p {
+    color: white;
+  }
+}
+
 .one {
   font-family: Mojangles;
 }
@@ -20,10 +36,4 @@
   span {
     font-style: italic;
   }
-}
-
-.box {
-  width: 20vw;
-  height: 20vw;
-  background-color: magenta;
 }
