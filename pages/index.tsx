@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import styles from '../styles/index.module.scss';
 import React, { useState } from 'react';
+import MyButton from './button';
 
 
 const Page = () => {
@@ -16,6 +17,7 @@ const Page = () => {
         <p className={styles.three}>Hello <span>World</span></p>
         <p className={styles.four}>Hello <span>World</span></p>
         <Box />
+        <MyButton/>
       </>
     </div>
   );
