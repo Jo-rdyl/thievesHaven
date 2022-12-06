@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import styles from '../styles/index.module.scss';
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useRef } from 'react';
+import { useEffect } from 'react';
 
 
 const Page = () => {
@@ -9,15 +11,21 @@ const Page = () => {
       <Head>
         <title>thievesHaven</title>
       </Head>
-      <>
-        <h1>Hello World!</h1>
-        <p className={styles.one}>Hello <span>World</span></p>
-        <p className={styles.two}>Hello <span>World</span></p>
-        <p className={styles.three}>Hello <span>World</span></p>
-        <p className={styles.four}>Hello <span>World</span></p>
-        <Box />
-      </>
-    </div>
+      <Header />
+      <p className={styles.one}>Hello <span>World</span></p>
+      <p className={styles.two}>Hello <span>World</span></p>
+      <p className={styles.three}>Hello <span>World</span></p>
+      <p className={styles.four}>Hello <span>World</span></p>
+      <ArtStuff />
+    </>
+  );
+};
+
+const Header = () => {
+  return (
+    <header className={styles.Header}>
+      <h1>Hello World!</h1>
+    </header>
   );
 };
 
