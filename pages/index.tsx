@@ -1,12 +1,11 @@
 import Head from 'next/head';
 import styles from '../styles/index.module.scss';
 import React, { useState } from 'react';
-import MyButton from './button';
 
 
 const Page = () => {
   return (
-    <div>
+    <>
       <Head>
         <title>thievesHaven</title>
       </Head>
@@ -17,25 +16,28 @@ const Page = () => {
         <p className={styles.three}>Hello <span>World</span></p>
         <p className={styles.four}>Hello <span>World</span></p>
         <Box />
-        <MyButton/>
       </>
     </div>
   );
 };
 
-const Box = () => {
-  const [phase,setPhase] = useState(0);
+const ArtStuff = () => {
+  const [dimensions,setDimensions] = useState({
+    height: 0,
+    width: 0,
+  });
+  const ref = useRef(null);
+
+  useEffect(() => {
+    setDimensions({
+      height: ref.current!['clientHeight'], width: ref.current!['clientWidth']
+    });
+  });
 
   return (
-    <>
-      <div style={{borderRadius: `${phase}%`}} className={styles.box} onMouseOver={() => {
-        if (phase == 50) {
-          setPhase(phase - 50)
-        } else {
-          setPhase(phase + 12.5)
-        }
-      }}></div>
-    </>
+    <div className={styles.ArtStuff} ref={ref}>
+      <p>The height is {dimensions.height} and the width is {dimensions.width}</p>
+    </div>
   )
 }
 
