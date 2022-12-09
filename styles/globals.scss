@@ -1,8 +1,10 @@
+$yellow: #F8E9A1; $pink: #F76C6C; $lightBlue: #A8D0E6; $blue: #374785; $darkBlue: #24305E;
+
 html, body {
   padding: 0;
   margin: 0;
   font-family: Ubuntu, sans-serif;
-
+  background-color: $lightBlue;
 }
 
 ::-webkit-scrollbar {

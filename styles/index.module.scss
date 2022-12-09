@@ -1,13 +1,15 @@
+$yellow: #F8E9A1; $pink: #F76C6C; $lightBlue: #A8D0E6; $blue: #374785; $darkBlue: #24305E;
+
 .Header {
   h1 {
-    color: tomato;
+    color: $pink;
   }
 }
 
 
 .ArtStuff {
-  background-color: #1b1b2b;
-  height: 100vh;
+  background-color: $darkBlue;
+  height: 100vh; /* Important that these stay as vh and vw */
   width: 100vw;
 
   p {

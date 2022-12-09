@@ -24,7 +24,7 @@ const Page = () => {
 const Header = () => {
   return (
     <header className={styles.Header}>
-      <h1>Hello World!</h1>
+      <h1>theivesHaven</h1>
     </header>
   );
 };
@@ -40,11 +40,28 @@ const ArtStuff = () => {
     setDimensions({
       height: ref.current!['clientHeight'], width: ref.current!['clientWidth']
     });
-  });
+  },[]);
+
+  
+  const leftoverSpace = {
+    x: dimensions.width % 45, y: dimensions.height % 45
+  }
+  const usedSpace = {
+    x: dimensions.width-leftoverSpace.x, y: dimensions.height-leftoverSpace.y
+  }
+  const numberOfCircles = {
+    x: usedSpace.x / 45, y: usedSpace.y / 45
+  }
+
+  //create an array of possible locations
+  const locations = []
 
   return (
     <div className={styles.ArtStuff} ref={ref}>
-      <p>The height is {dimensions.height} and the width is {dimensions.width}</p>
+      <p>The width is {dimensions.width} and the height is {dimensions.height}</p>
+      <p>The used up space is {usedSpace.x} horizontal and {usedSpace.y} vertical</p>
+      <p>The number of circles is {numberOfCircles.x} horizontal and {numberOfCircles.y} vertical</p>
+      <p>The remaining space is {leftoverSpace.x} horizontal and {leftoverSpace.y} vertical</p>
     </div>
   )
 }
