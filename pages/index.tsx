@@ -1,8 +1,6 @@
 import Head from 'next/head';
 import styles from '../styles/index.module.scss';
-import { useState } from 'react';
-import { useRef } from 'react';
-import { useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 const Page = () => {
   return (
@@ -46,7 +44,6 @@ const ArtStuff = () => {
     (dimensions.width % 45) / 2, (dimensions.height % 45) / 2
   ]
 
-  //create an array of possible locations
   const locations = []
   for (let x = 22.5; x < dimensions.width; x += 45) {
     for (let y = 22.5; y < dimensions.height; y += 45) {
@@ -57,11 +54,30 @@ const ArtStuff = () => {
     }
   }
 
-  const mapped = locations.map((location) => <li>{location[0]} {location[1]}</li>)
+  const smallPossibleLocations = [...locations];
+  const medPossibleLocations = [...locations];
+  const bigPossibleLocations = [...locations];
+  const smallLocations = [];
+  const medLocations = [];
+  const bigLocations = [];
+  const numberOfCircles = locations.length / 2;
+  
+  for (let i = locations.length - 1; i > numberOfCircles; i--) {
+    let s = Math.trunc(Math.random() * i);
+    let m = Math.trunc(Math.random() * i);
+    let b = Math.trunc(Math.random() * i);
+
+    smallLocations.push(smallPossibleLocations[s]);
+    medLocations.push(medPossibleLocations[m]);
+    bigLocations.push(bigPossibleLocations[b]);
+
+    smallPossibleLocations.splice(s,1);
+    medPossibleLocations.splice(m,1);
+    bigPossibleLocations.splice(b,1);
+    }
 
   return (
     <div className={styles.ArtStuff} ref={ref}>
-      <ol>{mapped}</ol>
     </div>
   )
 }

@@ -6,7 +6,6 @@ $yellow: #F8E9A1; $pink: #F76C6C; $lightBlue: #A8D0E6; $blue: #374785; $darkBlue
   }
 }
 
-
 .ArtStuff {
   background-color: $darkBlue;
   height: 100vh; /* Important that these stay as vh and vw */
@@ -14,6 +13,32 @@ $yellow: #F8E9A1; $pink: #F76C6C; $lightBlue: #A8D0E6; $blue: #374785; $darkBlue
 
   p {
     color: white;
+  }
+
+  .circle {
+    display: absolute;
+    border-radius: 50%;
+  }
+
+  .small {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: white;
+  }
+
+  .med {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: $yellow;
+  }
+
+  .big {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: $blue;
   }
 }
 
