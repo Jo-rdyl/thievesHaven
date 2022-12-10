@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 
-
 const Page = () => {
   return (
     <>
@@ -38,30 +37,31 @@ const ArtStuff = () => {
 
   useEffect(() => {
     setDimensions({
-      height: ref.current!['clientHeight'], width: ref.current!['clientWidth']
+      height: ref.current!['clientHeight'],
+      width: ref.current!['clientWidth']
     });
   },[]);
 
-  
-  const leftoverSpace = {
-    x: dimensions.width % 45, y: dimensions.height % 45
-  }
-  const usedSpace = {
-    x: dimensions.width-leftoverSpace.x, y: dimensions.height-leftoverSpace.y
-  }
-  const numberOfCircles = {
-    x: usedSpace.x / 45, y: usedSpace.y / 45
-  }
+  const halfSpace = [
+    (dimensions.width % 45) / 2, (dimensions.height % 45) / 2
+  ]
 
   //create an array of possible locations
   const locations = []
+  for (let x = 22.5; x < dimensions.width; x += 45) {
+    for (let y = 22.5; y < dimensions.height; y += 45) {
+      locations.push([
+        x + halfSpace[0],
+        y + halfSpace[1]
+      ])
+    }
+  }
+
+  const mapped = locations.map((location) => <li>{location[0]} {location[1]}</li>)
 
   return (
     <div className={styles.ArtStuff} ref={ref}>
-      <p>The width is {dimensions.width} and the height is {dimensions.height}</p>
-      <p>The used up space is {usedSpace.x} horizontal and {usedSpace.y} vertical</p>
-      <p>The number of circles is {numberOfCircles.x} horizontal and {numberOfCircles.y} vertical</p>
-      <p>The remaining space is {leftoverSpace.x} horizontal and {leftoverSpace.y} vertical</p>
+      <ol>{mapped}</ol>
     </div>
   )
 }
