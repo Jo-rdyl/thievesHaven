@@ -9,10 +9,12 @@ const Page = () => {
         <title>thievesHaven</title>
       </Head>
       <Header />
-      <p className={styles.one}>Hello <span>World</span></p>
-      <p className={styles.two}>Hello <span>World</span></p>
+      <p className={styles.one}>Hello World</p>
+      <p className={styles.two}>Hello World</p>
       <p className={styles.three}>Hello <span>World</span></p>
       <p className={styles.four}>Hello <span>World</span></p>
+      <p className={styles.five}>Hello World</p>
+      <p className={styles.six}>Hello World</p>
       <ArtStuff />
     </>
   );
@@ -48,8 +50,8 @@ const ArtStuff = () => {
   for (let x = 22.5; x < dimensions.width; x += 45) {
     for (let y = 22.5; y < dimensions.height; y += 45) {
       locations.push([
-        x + halfSpace[0],
-        y + halfSpace[1]
+        x - halfSpace[0],
+        y - halfSpace[1]
       ])
     }
   }
@@ -60,7 +62,7 @@ const ArtStuff = () => {
   const smallLocations = [];
   const medLocations = [];
   const bigLocations = [];
-  const numberOfCircles = locations.length / 2;
+  const numberOfCircles = locations.length / 1.3;
   
   for (let i = locations.length - 1; i > numberOfCircles; i--) {
     let s = Math.trunc(Math.random() * i);
@@ -76,8 +78,32 @@ const ArtStuff = () => {
     bigPossibleLocations.splice(b,1);
     }
 
+    const smallMapped = smallLocations.map((location) => {
+      return (
+        <div
+        className={`${styles.circle} ${styles.small}`}
+        style={{left: `${location[0] + 15}px`, top: `${location[1] + 15}px`}}/>
+      )
+    })
+    const medMapped = medLocations.map((location) => {
+      return (
+        <div
+        className={`${styles.circle} ${styles.med}`}
+        style={{left: `${location[0] + 7.5}px`, top: `${location[1] + 7.5}px`}}/>
+      )
+    })
+    const bigMapped = bigLocations.map((location) => {
+      return (
+        <div
+        className={`${styles.circle} ${styles.big}`}
+        style={{left: `${location[0]}px`, top: `${location[1]}px`}}/>
+      )
+    })
+
+
   return (
     <div className={styles.ArtStuff} ref={ref}>
+        {bigMapped}{medMapped}{smallMapped}
     </div>
   )
 }

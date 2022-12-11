@@ -7,37 +7,32 @@ $yellow: #F8E9A1; $pink: #F76C6C; $lightBlue: #A8D0E6; $blue: #374785; $darkBlue
 }
 
 .ArtStuff {
+  position: relative;
   background-color: $darkBlue;
   height: 100vh; /* Important that these stay as vh and vw */
   width: 100vw;
-
-  p {
-    color: white;
-  }
+  overflow: hidden;
 
   .circle {
-    display: absolute;
+    position: absolute;
     border-radius: 50%;
   }
 
   .small {
     width: 15px;
     height: 15px;
-    border-radius: 50%;
-    background-color: white;
+    background-color: $yellow;
   }
 
   .med {
     width: 30px;
     height: 30px;
-    border-radius: 50%;
-    background-color: $yellow;
+    background-color: $lightBlue;
   }
 
   .big {
     width: 45px;
     height: 45px;
-    border-radius: 50%;
     background-color: $blue;
   }
 }
@@ -64,4 +59,12 @@ $yellow: #F8E9A1; $pink: #F76C6C; $lightBlue: #A8D0E6; $blue: #374785; $darkBlue
   span {
     font-style: italic;
   }
+}
+
+.five {
+  font-family: Reospec;
+}
+
+.six {
+  font-family: Nordic;
 }
