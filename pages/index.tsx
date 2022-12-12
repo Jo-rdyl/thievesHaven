@@ -82,23 +82,26 @@ const ArtStuff = () => {
       return (
         <div
         className={`${styles.circle} ${styles.small}`}
-        style={{left: `${location[0] + 15}px`, top: `${location[1] + 15}px`}}/>
+        style={{left: `${location[0] + 15}px`, top: `${location[1] + 15}px`}}
+        key={`s${location}`} />
       )
-    })
+    });
     const medMapped = medLocations.map((location) => {
       return (
         <div
         className={`${styles.circle} ${styles.med}`}
-        style={{left: `${location[0] + 7.5}px`, top: `${location[1] + 7.5}px`}}/>
+        style={{left: `${location[0] + 7.5}px`, top: `${location[1] + 7.5}px`}}
+        key={`m${location}`} />
       )
-    })
+    });
     const bigMapped = bigLocations.map((location) => {
       return (
         <div
         className={`${styles.circle} ${styles.big}`}
-        style={{left: `${location[0]}px`, top: `${location[1]}px`}}/>
+        style={{left: `${location[0]}px`, top: `${location[1]}px`}}
+        key={`b${location}`} />
       )
-    })
+    });
 
 
   return (
