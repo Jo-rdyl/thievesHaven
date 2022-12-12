@@ -9,12 +9,6 @@ const Page = () => {
         <title>thievesHaven</title>
       </Head>
       <Header />
-      <p className={styles.one}>Hello World</p>
-      <p className={styles.two}>Hello World</p>
-      <p className={styles.three}>Hello <span>World</span></p>
-      <p className={styles.four}>Hello <span>World</span></p>
-      <p className={styles.five}>Hello World</p>
-      <p className={styles.six}>Hello World</p>
       <ArtStuff />
     </>
   );
@@ -23,7 +17,21 @@ const Page = () => {
 const Header = () => {
   return (
     <header className={styles.Header}>
-      <h1>theivesHaven</h1>
+      <h1>
+        <span className={styles.letter}>t</span>
+        <span className={styles.letter}>h</span>
+        <span className={styles.letter}>i</span>
+        <span className={styles.letter}>e</span>
+        <span className={styles.letter}>v</span>
+        <span className={styles.letter}>e</span>
+        <span className={styles.letter}>s</span>
+        <wbr/>
+        <span className={styles.letter}>H</span>
+        <span className={styles.letter}>a</span>
+        <span className={styles.letter}>v</span>
+        <span className={styles.letter}>e</span>
+        <span className={styles.letter}>n</span>
+      </h1>
     </header>
   );
 };
@@ -106,7 +114,10 @@ const ArtStuff = () => {
 
   return (
     <div className={styles.ArtStuff} ref={ref}>
+      <div className={styles.wrapper}></div>
+      <div className={styles.container}>
         {bigMapped}{medMapped}{smallMapped}
+      </div>
     </div>
   )
 }
