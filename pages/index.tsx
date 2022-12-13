@@ -54,6 +54,9 @@ const ArtStuff = () => {
     (dimensions.width % 45) / 2, (dimensions.height % 45) / 2
   ]
 
+  // Desktop: 4.5vw, 22*14= 308circles, 100vw/64vw, 1vw left
+  // Mobile: 12vw, 8*20= 160circles, 100vw/250vw, 4vw left
+
   const locations = []
   for (let x = 22.5; x < dimensions.width; x += 45) {
     for (let y = 22.5; y < dimensions.height; y += 45) {
@@ -89,7 +92,7 @@ const ArtStuff = () => {
     const smallMapped = smallLocations.map((location) => {
       return (
         <div
-        className={`${styles.circle} ${styles.small}`}
+        className={styles.small}
         style={{left: `${location[0] + 15}px`, top: `${location[1] + 15}px`}}
         key={`s${location}`} />
       )
@@ -97,7 +100,7 @@ const ArtStuff = () => {
     const medMapped = medLocations.map((location) => {
       return (
         <div
-        className={`${styles.circle} ${styles.med}`}
+        className={styles.med}
         style={{left: `${location[0] + 7.5}px`, top: `${location[1] + 7.5}px`}}
         key={`m${location}`} />
       )
@@ -105,7 +108,7 @@ const ArtStuff = () => {
     const bigMapped = bigLocations.map((location) => {
       return (
         <div
-        className={`${styles.circle} ${styles.big}`}
+        className={styles.big}
         style={{left: `${location[0]}px`, top: `${location[1]}px`}}
         key={`b${location}`} />
       )
@@ -114,7 +117,8 @@ const ArtStuff = () => {
 
   return (
     <div className={styles.ArtStuff} ref={ref}>
-      <div className={styles.wrapper}></div>
+      <div className={styles.wrapper}>
+      </div>
       <div className={styles.container}>
         {bigMapped}{medMapped}{smallMapped}
       </div>

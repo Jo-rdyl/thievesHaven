@@ -6,16 +6,26 @@ $yellow: #F8E9A1; $pink: #F76C6C; $lightBlue: #A8D0E6; $blue: #374785; $darkBlue
   h1 {
     text-align: center;
     position: relative;
-    font-size: 10rem;
+    font-size: 5rem;
     color: $pink;
-    padding-top: 5rem;
-    margin: 0 0 -5rem 0;
+    padding-top: 2.5rem;
+    margin: 0 0 -8.25rem 0;
     z-index: 3;
+    text-shadow: 0 0 3px $yellow;
+
 
     .letter:hover {
       text-shadow: $yellow 0 1rem;
       transition: text-shadow 0.5s;
       transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    h1 {
+      font-size: 10rem;
+      padding-top: 5rem;
+      margin-bottom: -5rem;
     }
   }
 }
@@ -40,60 +50,28 @@ $yellow: #F8E9A1; $pink: #F76C6C; $lightBlue: #A8D0E6; $blue: #374785; $darkBlue
     position: relative;
     top: -100%;
     background-color: $darkBlue;
+
+    div {
+      border-radius: 50%;
+      position: absolute;
+    }
+    
+    .small {
+      width: 15px;
+      height: 15px;
+      background-color: $yellow;
+    }
+
+    .med {
+      width: 30px;
+      height: 30px;
+      background-color: $lightBlue;
+    }
+
+    .big {
+      width: 45px;
+      height: 45px;
+      background-color: $blue;
+    }
   }
-
-  .circle {
-    position: absolute;
-    border-radius: 50%;
-  }
-
-  .small {
-    width: 15px;
-    height: 15px;
-    background-color: $yellow;
-  }
-
-  .med {
-    width: 30px;
-    height: 30px;
-    background-color: $lightBlue;
-  }
-
-  .big {
-    width: 45px;
-    height: 45px;
-    background-color: $blue;
-  }
-}
-
-.one {
-  font-family: Mojangles;
-}
-
-.two {
-  font-family: Mojangles;
-  font-weight: bold;
-}
-
-.three {
-  font-family: Ubuntu;
-  span {
-    font-style: italic;
-  }
-}
-
-.four {
-  font-family: Ubuntu;
-  font-weight: bold;
-  span {
-    font-style: italic;
-  }
-}
-
-.five {
-  font-family: Reospec;
-}
-
-.six {
-  font-family: Nordic;
 }
