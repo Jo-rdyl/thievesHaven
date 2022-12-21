@@ -12,13 +12,14 @@ $yellow: #F8E9A1; $pink: #F76C6C; $lightBlue: #A8D0E6; $blue: #374785; $darkBlue
     margin: 0 0 -2.5rem 0;
     z-index: 3;
     text-shadow: $yellow 0 0.5rem;
+    font-family: Nordic;
   }
 
   @media only screen and (min-width: 768px) {
     h1 {
-      font-size: 10rem;
+      font-size: 9rem;
       padding-top: 2.5rem;
-      margin-bottom: -5rem;
+      margin-bottom: -5.5rem;
       text-shadow: none;
 
       .letter:hover {
@@ -31,48 +32,6 @@ $yellow: #F8E9A1; $pink: #F76C6C; $lightBlue: #A8D0E6; $blue: #374785; $darkBlue
   }
 }
 
-.ArtStuff {
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-
-  .wrapper {
-    height: 100%;
-    width: 100%;
-    background-color: $lightBlue;
-    filter: opacity(0.5);
-    position: relative;
-    z-index: 2;
-  }
-
-  .container {
-    height: 100%;
-    width: 100%;
-    position: relative;
-    top: -100%;
-    background-color: $darkBlue;
-
-    div {
-      border-radius: 50%;
-      position: absolute;
-    }
-    
-    .small {
-      width: 15px;
-      height: 15px;
-      background-color: $yellow;
-    }
-
-    .med {
-      width: 30px;
-      height: 30px;
-      background-color: $lightBlue;
-    }
-
-    .big {
-      width: 45px;
-      height: 45px;
-      background-color: $blue;
-    }
-  }
+.AboutUs {
+  font-size: 1px;
 }

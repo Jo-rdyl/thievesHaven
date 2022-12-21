@@ -1,119 +1,59 @@
 import Head from 'next/head';
 import styles from '../styles/index.module.scss';
-import { useState, useRef, useEffect } from 'react';
+import ArtStuff from '../components/artStuff';
 
-const Page = () => {
+
+const Home = () => {
   return (
     <>
       <Head>
-        <title>thievesHaven</title>
+        <title>pointyThieves</title>
       </Head>
       <Header />
       <ArtStuff />
+      <AboutUs />
     </>
   );
 };
 
 
-const Header = () => {
+function Header() {
   return (
     <header className={styles.Header}>
       <h1>
+        <span className={styles.letter}>p</span>
+        <span className={styles.letter}>o</span>
+        <span className={styles.letter}>i</span>
+        <span className={styles.letter}>n</span>
         <span className={styles.letter}>t</span>
+        <span className={styles.letter}>y</span>
+        <wbr/>
+        <span className={styles.letter}>T</span>
         <span className={styles.letter}>h</span>
         <span className={styles.letter}>i</span>
         <span className={styles.letter}>e</span>
         <span className={styles.letter}>v</span>
         <span className={styles.letter}>e</span>
         <span className={styles.letter}>s</span>
-        <wbr/>
-        <span className={styles.letter}>H</span>
-        <span className={styles.letter}>a</span>
-        <span className={styles.letter}>v</span>
-        <span className={styles.letter}>e</span>
-        <span className={styles.letter}>n</span>
       </h1>
     </header>
   );
 };
 
 
-const ArtStuff = () => {
-  const [dimensions,setDimensions] = useState({
-    height: 0,
-    width: 0,
-  });
-  const ref = useRef(null);
-
-  useEffect(() => {
-    setDimensions({
-      height: ref.current!['clientHeight'],
-      width: ref.current!['clientWidth']
-    });
-  },[]);
-
-  const halfSpace = [
-    (dimensions.width % 45) / 2, (dimensions.height % 45) / 2
-  ]
-
-  const locations = []
-
-  for (let x = 0; x < dimensions.width - 45; x += 45) {
-    for (let y = 0; y < dimensions.height - 45; y += 45) {
-      locations.push([
-        x + halfSpace[0],
-        y + halfSpace[1]
-      ])
-    }
+function AboutUs() {
+  function aboutPerson(props: any) {
+    return (
+      <div>
+      </div>
+    )
   }
 
-  const smallLocations = locations.map((location) => [location[0] + 15, location[1] + 15]);
-  const medLocations = locations.map((location) => [location[0] + 7.5, location[1] + 7.5]);
-  const bigLocations = [...locations];
-  const numberOfCircles = locations.length * 0.25;
-  
-  for (let i = locations.length - 1; i > numberOfCircles; i--) {
-    smallLocations.splice(Math.trunc(Math.random() * i),1);
-    medLocations.splice(Math.trunc(Math.random() * i),1);
-    bigLocations.splice(Math.trunc(Math.random() * i),1);
-    }
-
-
-  const smallMapped = smallLocations.map((location) => {
-    return (
-      <div
-      className={styles.small}
-      style={{left: `${location[0]}px`, top: `${location[1]}px`}}
-      key={`s${location}`} />
-    )
-  });
-  const medMapped = medLocations.map((location) => {
-    return (
-      <div
-      className={styles.med}
-      style={{left: `${location[0]}px`, top: `${location[1]}px`}}
-      key={`m${location}`} />
-    )
-  });
-  const bigMapped = bigLocations.map((location) => {
-    return (
-      <div
-      className={styles.big}
-      style={{left: `${location[0]}px`, top: `${location[1]}px`}}
-      key={`b${location}`} />
-    )
-  });
-
   return (
-    <div className={styles.ArtStuff} ref={ref}>
-      <div className={styles.wrapper}>
-      </div>
-      <div className={styles.container}>
-        {bigMapped}{medMapped}{smallMapped}
-      </div>
-    </div>
+    <section className={styles.AboutUs}>
+    </section>
   )
 }
 
 
-export default Page;
+export default Home;
