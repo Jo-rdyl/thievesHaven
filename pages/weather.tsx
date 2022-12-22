@@ -1,6 +1,4 @@
-import useSWR, {SWRConfig} from 'swr';
 import { useState } from 'react';
-const fetcher = (url) => fetch(url).then(res => res.json())
 
 export default function App() {
 const [city,setCity] = useState("");
