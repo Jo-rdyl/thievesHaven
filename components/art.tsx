@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
-import styles from '../styles/artStuff.module.scss'
+import styles from './art.module.scss';
 
-function ArtStuff() {
+function Art() {
   const [dimensions,setDimensions] = useState({
     height: 0,
     width: 0,
@@ -79,4 +79,4 @@ function ArtStuff() {
   )
 }
 
-export default ArtStuff;
+export default Art;
