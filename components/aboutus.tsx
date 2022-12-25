@@ -1,5 +1,3 @@
-import styles from './aboutus.module.scss';
-
 function AboutUs() {
   function aboutPerson(props: any) {
     return (
@@ -9,7 +7,7 @@ function AboutUs() {
   }
 
   return (
-    <section className={styles.AboutUs}>
+    <section>
     </section>
   )
 }
