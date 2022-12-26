@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from 'react';
-import styles from './art.module.scss';
 
 function Art() {
   const [dimensions,setDimensions] = useState({
@@ -46,7 +45,7 @@ function Art() {
   const smallMapped = smallLocations.map((location) => {
     return (
       <div
-      className={styles.small}
+      className='small'
       style={{left: `${location[0]}px`, top: `${location[1]}px`}}
       key={`s${location}`} />
     )
@@ -54,7 +53,7 @@ function Art() {
   const medMapped = medLocations.map((location) => {
     return (
       <div
-      className={styles.med}
+      className='med'
       style={{left: `${location[0]}px`, top: `${location[1]}px`}}
       key={`m${location}`} />
     )
@@ -62,20 +61,68 @@ function Art() {
   const bigMapped = bigLocations.map((location) => {
     return (
       <div
-      className={styles.big}
+      className='big'
       style={{left: `${location[0]}px`, top: `${location[1]}px`}}
       key={`b${location}`} />
     )
   });
 
   return (
-    <div className={styles.ArtStuff} ref={ref}>
-      <div className={styles.wrapper}>
-      </div>
-      <div className={styles.container}>
-        {bigMapped}{medMapped}{smallMapped}
-      </div>
-    </div>
+    <>
+      <section ref={ref}>
+        <div className='wrapper'>
+        </div>
+        <div className='container'>
+          {bigMapped}{medMapped}{smallMapped}
+        </div>
+      </section>
+      <style jsx>
+        {`
+        section {
+          height: 100vh;
+          overflow: hidden;
+        }
+        
+        .wrapper {
+          height: 100%;
+          background-color: #A8D0E6;
+          filter: opacity(0.5);
+          position: relative;
+          z-index: 2;
+        }
+        
+        .container {
+          height: 100%;
+          position: relative;
+          top: -100%;
+          background-color: #24305E;
+        }
+
+        .container > :global(div) {
+          border-radius: 50%;
+          position: absolute;
+        }
+
+        .container > :global(.small) {
+          width: 15px;
+          height: 15px;
+          background-color: #F8E9A1;
+        }
+
+        .container > :global(.med) {
+          width: 30px;
+          height: 30px;
+          background-color: #A8D0E6;
+        }
+
+        .container > :global(.big) {
+          width: 45px;
+          height: 45px;
+          background-color: #374785;
+        }
+        `}
+      </style>
+    </>
   )
 }
 
