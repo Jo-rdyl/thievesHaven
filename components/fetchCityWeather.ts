@@ -6,7 +6,7 @@ export default async function fetchCityWeather(theCityName:String) {
       console.log(response.status);
   
       if(!response) {
-        throw new Error(`HTTP ERROR: ${response.status}`);
+        throw new Error(`HTTP ERROR: ${response["status"]}`);
       } //THE RESULTS ARE SENT TO THE CONSOLE SO DO INSPECT ELEMENTS
         const data = await response.json();
         console.log(data);
