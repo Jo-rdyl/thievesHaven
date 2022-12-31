@@ -17,7 +17,7 @@ export default async function fetchCityWeather(theCityName:String) {
   
       }
     catch (error) {
-      statusp.innerHTML = `gay`;
+      statusp.innerHTML = `error you dumb bitch`;
     }
   
   }
