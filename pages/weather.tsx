@@ -1,11 +1,13 @@
 import fetchCityWeather from '../components/fetchCityWeather';
+import { useState } from 'react';
 
 export default function App() {
+    const [city,setCity] = useState("")
   return (
     <section style={{textAlign:"center"}}>
       <h1>Weather Test App</h1>
-      <input type="text" placeholder="enter city name" id="cityName"/>
-      <input type="submit" onClick={handleClick}/>
+      <input type="text" placeholder="enter city name" id="cityName" value={city} onChange={(e) => setCity(e.target.value)}/>
+      <input type="submit" onClick={() => fetchCityWeather(city)}/>
       <p id="Jordy">Written by Jordy</p>
         <p id="OpenWeather">Powered by OpenWeather™</p>
         <p id="status"></p>
@@ -18,11 +20,6 @@ export default function App() {
             margin-bottom: 8px;
         }`}</style>
       </section>
+      
   );
-}
-const handleClick = () => {
-  const GetCityName = document.querySelector("#cityName")
-  const CityName = GetCityName.value;
-  fetchCityWeather(CityName)
-
 }

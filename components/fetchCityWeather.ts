@@ -1,5 +1,5 @@
 export default async function fetchCityWeather(theCityName:String) {
-    const statusp = document.querySelector("#status")
+    let statusp = document.querySelector("#status")
     const weather = document.querySelector(".weather")
     try{
       const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${theCityName},&units=metric&appid=51e69e6229683f0c12fea8d17f57063e`);
@@ -11,13 +11,13 @@ export default async function fetchCityWeather(theCityName:String) {
         const data = await response.json();
         console.log(data);
         console.log(`Jahin may be gay but the weather in ${data["name"]} is ${data["main"]["temp"]}°C`)
-        statusp.innerHTML="Success!"
+        statusp!.innerHTML = "Success!"
         
         
   
       }
     catch (error) {
-      statusp.innerHTML = `error you dumb bitch`;
+      statusp!.innerHTML = `error you dumb bitch`;
     }
   
   }
