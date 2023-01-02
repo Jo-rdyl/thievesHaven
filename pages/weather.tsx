@@ -8,7 +8,7 @@ const [status,setStatus] = useState("")
 const [didwork,setdidwork] = useState(false)
 
 async function fetchCityWeather(theCityName:String) {
-  try{
+  try {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${theCityName}&units=metric&appid=51e69e6229683f0c12fea8d17f57063e`);
     console.log(response.status);
 
@@ -34,7 +34,7 @@ async function fetchCityWeather(theCityName:String) {
 return (
     <section style={{textAlign:"center",backgroundColor:"#2c2e31"}}>
       <h1>Weather Test App</h1>
-      <input type="text" placeholder="enter city name" id="cityName" value={city} onChange={(e) => setCity(e.target.value)}/>
+      <input type="text" placeholder="Enter the city's name" id="cityName" value={city} onChange={(e) => setCity(e.target.value)}/>
       <input type="submit" onClick={() => fetchCityWeather(city)}/>
       <p id="Jordy">Written by Jordy</p>
         <p id="OpenWeather">Powered by OpenWeather™</p>
@@ -57,8 +57,8 @@ return (
           padding:10px 20px 0px 0px;
           border-radius:1em;
         }
-        input[placeholder="enter city name"]{
-          p
+        input[placeholder="Enter the city's name"]{
+          text-align:center;
         }
         }`}</style>
       </section>
