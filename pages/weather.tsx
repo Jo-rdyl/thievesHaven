@@ -8,11 +8,8 @@ const [status,setStatus] = useState("")
 const [didwork,setdidwork] = useState(false)
 
 async function fetchCityWeather(theCityName:String) {
-  let statusp = document.querySelector("#status")
-  const weather = document.querySelector(".weather")
-  let inputCityName = document.querySelector("#cityName")
   try{
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${theCityName},&units=metric&appid=51e69e6229683f0c12fea8d17f57063e`);
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${theCityName}&units=metric&appid=51e69e6229683f0c12fea8d17f57063e`);
     console.log(response.status);
 
     if(!response) {
@@ -42,7 +39,7 @@ return (
       <p id="Jordy">Written by Jordy</p>
         <p id="OpenWeather">Powered by OpenWeather™</p>
         <p>{status}</p>
-        {didwork && `${Math.round(weatherData!.main.temp)}°C`}
+        {didwork && `${Math.round(weatherData!["main"]["temp"])}°C`}
 
         <style jsx>{`
         #Jordy{
