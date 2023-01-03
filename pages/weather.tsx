@@ -19,7 +19,7 @@ async function fetchCityWeather(theCityName:String) {
       setdidwork(true)
       console.log(data);
       SetWeatherData(data);
-      console.log(`Jahin may be gay but the weather in ${data["name"]} is ${data["main"]["temp"]}°C`)
+      console.log(`Jordy may be gay but the weather in ${data["name"]} is ${data["main"]["temp"]}°C`)
       setStatus("Successful!")
       
       
@@ -31,37 +31,56 @@ async function fetchCityWeather(theCityName:String) {
 
 }
 
-return (
-    <section style={{textAlign:"center",backgroundColor:"#2c2e31"}}>
-      <h1>Weather Test App</h1>
+  return (
+    <>
+    <section className="section">
+      <h2>Weather Test App</h2>
       <input type="text" placeholder="Enter the city's name" id="cityName" value={city} onChange={(e) => setCity(e.target.value)}/>
       <input type="submit" onClick={() => fetchCityWeather(city)}/>
-      <p id="Jordy">Written by Jordy</p>
-        <p id="OpenWeather">Powered by OpenWeather™</p>
-        <p>{status}</p>
-        {didwork && `${Math.round(weatherData!["main"]["temp"])}°C`}
+      <p>Written by Jordy</p>
+      <p>Powered by OpenWeather™</p>
+      <p>{status}</p>
+      {didwork && `${Math.round(weatherData!["main"]["temp"])}°C`}
+    </section>
+    <style jsx>{`
+    .section {
+      text-align: center;
+      background-color: #24305E;
+      color: white;
+    }
 
-        <style jsx>{`
-        #Jordy{
-            font-family: Ubuntu, sans-serif;
-            text-align: center;
-            box-sizing: border-box;
-            margin-top: 8px;
-            margin-bottom: 8px;
-        }
-        h1,h2{color:yellow;}
-        p{color:white;}
-        #cityName{
-          background-color:white;
-          color:white;
-          padding:10px 20px 0px 0px;
-          border-radius:1em;
-        }
-        input[placeholder="Enter the city's name"]{
-          text-align:center;
-        }
-        }`}</style>
-      </section>
-    
+    .section > h2 {
+      font-size: 5rem;
+      color: #F8E9A1;
+    }
+
+    .section > p {
+      font-size: 1.5rem;
+      padding: 0.1rem 0;
+    }
+
+    .section > input[type="text"] {
+      height: 3.5rem;
+      width: 25vw;
+      box-sizing: padding-box;
+      border: none;
+      border-radius: 15px;
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .section > input[type="submit"] {
+      height: 1.5rem;
+      width: 25vw;
+      background-color: #A8D0E6;
+      border: none;
+      border-radius: 15px;
+      display: block;
+      margin: 1rem auto 4rem;
+    }
+    }`}
+    </style>
+    </>
   );
 }

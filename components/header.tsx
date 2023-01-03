@@ -34,7 +34,6 @@ function Header() {
           margin: 0 0 -2.5rem 0;
           z-index: 3;
           text-shadow: #f8e9a1 0 0.5rem;
-          font-family: Nordic;
         }
         
         @media only screen and (min-width: 768px) {
