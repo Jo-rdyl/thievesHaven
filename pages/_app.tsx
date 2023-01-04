@@ -12,14 +12,16 @@ export default function App({ Component, pageProps }: AppProps) {
   <>
   <style global jsx>{`
   html, body {
-    font-family: ${SpaceGrotesk.style.fontFamily};
+    font-family: ${SpaceGrotesk.style.fontFamily}, sans-serif;
+    font-display: swap;
     padding: 0;
     margin: 0;
     background-color: #A8D0E6;
   }
 
   h1, h2, h3 , h4 {
-    font-family: ${Nordic.style.fontFamily};
+    font-family: ${Nordic.style.fontFamily}, sans-serif;
+    font-display: swap;
   }
   
   ::-webkit-scrollbar {
