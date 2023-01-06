@@ -29,23 +29,22 @@ function Header() {
           text-align: center;
           position: relative;
           font-size: 5rem;
-          color: #f76c6c;
           padding-top: 2.5rem;
           margin: 0 0 -2.5rem 0;
           z-index: 3;
-          text-shadow: #f8e9a1 0 0.5rem;
+          text-shadow: #f8e9a1 0.3rem 0.5rem;
         }
         
         @media only screen and (min-width: 768px) {
           h1 {
-            font-size: 9rem;
-            padding-top: 2.5rem;
-            margin-bottom: -5.5rem;
+            font-size: 11vw;
+            padding-top: 3vh;
+            margin-bottom: -7.5vw;
             text-shadow: none;
           }
       
           .letter:hover {
-            text-shadow: #f8e9a1 0 1rem;
+            text-shadow: #f8e9a1 1.5vw 2vw;
             transition: text-shadow 0.5s;
             transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
             cursor: default;

@@ -1,9 +1,10 @@
 import Head from 'next/head';
 
-// all components imported here
+// all components imported here (in order ideally)
+import Header from '../components/header';
 import Art from '../components/art';
 import AboutUs from '../components/aboutus';
-import Header from '../components/header';
+import Weather from '../components/weather';
 
 console.log('%cHello, World!',
 'color: #374785;\
@@ -26,6 +27,7 @@ const Home = () => {
         <Header />
         <Art />
         <AboutUs />
+        <Weather />
       </>
     </>
   );

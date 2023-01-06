@@ -86,7 +86,7 @@ function Art() {
         .wrapper {
           height: 100%;
           background-color: #A8D0E6;
-          filter: opacity(0.5);
+          filter: opacity(0.45);
           position: relative;
           z-index: 2;
         }
