@@ -1,70 +1,63 @@
 import { useState } from 'react';
 
 function Weather() {
-  const [city,setCity] = useState("")
-  const [inputCityText,setInputCityText] = useState("")
   const [weatherData,SetWeatherData] = useState(null)
-  const [status,setStatus] = useState("")
-  const [didwork,setdidwork] = useState(false)
 
-  async function fetchCityWeather(theCityName:String) {
+  const fetchCityWeather = async (event: any) => {
+
+    event.preventDefault();  //Stop the form from submitting and refreshing the page
+
+    const theCityName = event.target.city.value; //gets the input value
+
     try {
-      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${theCityName}&units=metric&appid=51e69e6229683f0c12fea8d17f57063e`);
-      console.log(response.status);
-
-      if(!response) {
-        throw new Error(`HTTP ERROR: ${response["status"]}`);
-      } //THE RESULTS ARE SENT TO THE CONSOLE SO DO INSPECT ELEMENTS
-        const data = await response.json();
-        setdidwork(true)
-        console.log(data);
-        SetWeatherData(data);
-        console.log(`Jordy may be gay but the weather in ${data["name"]} is ${data["main"]["temp"]}°C`)
-        setStatus("Successful!")
-        
-        
-
-      }
-    catch (error) {
-      setStatus("Error haha")
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=\
+      ${theCityName}&units=metric&appid=51e69e6229683f0c12fea8d17f57063e`);
+      const data = await response.json();
+      SetWeatherData(data);
+      console.log(JSON.stringify(data,null,2));
     }
-
+    catch (error) {
+      console.log("Error")
+    }
   }
 
   return (
     <>
-    <section className="section">
-      <h2>Weather Test App</h2>
-      <input type="text" placeholder="Enter the city's name" id="cityName" value={city} onChange={(e) => setCity(e.target.value)}/>
-      <input type="submit" onClick={() => fetchCityWeather(city)}/>
-      <p>Written by Jordy</p>
-      <p>Powered by OpenWeather™</p>
-      <p>{status ? status : 'waiting on status...'}</p>
-      {didwork && `${Math.round(weatherData!["main"]["temp"])}°C`}
+    <section>
+      <h2>Weather</h2>
+      <form onSubmit={fetchCityWeather}>
+        <input type="text" required placeholder="Enter the city's name" name="city" />
+        <button type='submit'>Submit</button>
+      </form>
+      <p>Written by Jordy and Powered by OpenWeather™</p>
+      <p style={{whiteSpace: "pre",}}>{weatherData ? `${JSON.stringify(weatherData,null,2)}` : ""}</p>
     </section>
     <style jsx>{`
-    .section {
+    section {
+      height: 100vh;
       text-align: center;
       color: white;
     }
 
-    .section > h2 {
-      font-size: 5vw;
+    img {
+      height: 100px;
+      width: 100px;
     }
 
-    .section > p {
+    h2 {
+      font-size: 5vw;
+      margin-bottom: 12vh;
+    }
+
+    p {
+      margin-top: 3vh;
       font-size: 1.5rem;
     }
 
-    .section > input[type="text"] {
-      border: none;
-      border-radius: 15px;
-      text-align: center;
-    }
-
-    .section > input[type="submit"] {
-      background-color: #A8D0E6;
-      border: none;
+    form {
+      background-color: #DAFFFF;
+      width: 30vw;
+      margin: 0 auto;
       border-radius: 15px;
     }
     }`}
