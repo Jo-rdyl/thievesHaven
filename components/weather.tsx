@@ -56,7 +56,7 @@ let SearchBar = async (e:any) =>{ //e is short for event I just like using it
         <ul className="dropDown">
           {searchData!= null && //If the user enters in something, GeoDB shows city results
           searchData.map((item:any)=>
-          <li onClick={() => setCity(item.name)} className="dropDown" style=
+          <li key = {item.name} onClick={() => setCity(item.name)} className="dropDown" style=
               {{color:"black",
             borderColor:"green",
             marginTop: "5px",
