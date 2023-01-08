@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import IconSearch from '../public/icons/search.svg';
+import Image from 'next/image';
 
 function Weather() {
   const [weatherData,SetWeatherData] = useState(null)
@@ -48,21 +50,23 @@ let SearchBar = async (e:any) =>{ //e is short for event I just like using it
     <>
     <section>
       <h2>Weather</h2>
+<<<<<<< Updated upstream
       <form onSubmit={fetchCityWeather}> {/*pretty self-explanatory */}
+=======
+      <form onSubmit={fetchCityWeather}>
+>>>>>>> Stashed changes
       <input type="text" required placeholder="Enter the city's name" name="city" value={city} onChange={SearchBar}/>
-      <button type='submit'>Submit</button>
+      <button type='submit'><Image src={IconSearch} height={40} width={40} alt="submit" /></button>
       </form>
       <div className="dropDown">
         <ul className="dropDown">
           {searchData!= null && //If the user enters in something, GeoDB shows city results
           searchData.map((item:any)=>
           <li key = {item.name} onClick={() => setCity(item.name)} className="dropDown" style=
-              {{color:"black",
-            borderColor:"green",
+              {{color:"#24305E",
             marginTop: "5px",
             marginBottom:"5px",
-                listStyleType:"none",
-                textAlign:"center"
+            listStyleType:"none",
           }}>
             {item.name}, {item.countryCode}</li>)}
         </ul>
@@ -77,11 +81,6 @@ let SearchBar = async (e:any) =>{ //e is short for event I just like using it
       color: white;
     }
 
-    img {
-      height: 100px;
-      width: 100px;
-    }
-
     h2 {
       font-size: 5vw;
       margin-bottom: 12vh;
@@ -94,9 +93,47 @@ let SearchBar = async (e:any) =>{ //e is short for event I just like using it
 
     form {
       background-color: #DAFFFF;
+      height: 50px;
       width: 30vw;
       margin: 0 auto;
-      border-radius: 15px;
+      border-radius: 25px;
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 10px;
+    }
+
+    form > * {
+      background-color: transparent;
+      border: none;
+      border-radius: 20px;
+    }
+
+    form:focus-within {
+      outline: 2px solid #24305E;
+    }
+
+    button[type="submit"] {
+      width: 40px;
+      padding: 0;
+    }
+
+    button[type="submit"]:hover {
+      cursor: pointer;
+    }
+
+    button[type="submit"] > img {
+      border-radius: 20px;
+    }
+
+    input[name="city"] {
+      font-weight: 300;
+      font-size: 15px;
+      color: #24305E;
+      width: calc(100% - 40px)
+    }
+
+    input[name="city"]:focus {
+      outline: none;
     }
     `}
     </style>
