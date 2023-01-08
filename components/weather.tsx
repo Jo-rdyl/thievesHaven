@@ -24,37 +24,34 @@ function Weather() {
     }
   }
 
-let SearchBar = async (e:any) =>{ //e is short for event I just like using it
-  setCity(e.target.value);//sorry Jahin but I cba use your long city.value thing
-  const options = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Key': 'fe21157b25msh5ee270bee489cfap15338fjsna0ebab076bd8',
-      'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
-    } // above are the GeoDB configurations, so it actually works (yes it's necessary)
-  };
-  try{
-  let response = await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?&offset=2&namePrefix=${city}`,options);
-  const data = await response.json();//turns the city names into JS objects
-  const actualData = data.data;//this helps with mapping the cities later on
-  console.log(data)
-  console.log(data["data"]["name"])
-  console.log(actualData[1])
-  setSearchData(actualData)
+  let SearchBar = async (e:any) =>{
+    setCity(e.target.value);
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': 'fe21157b25msh5ee270bee489cfap15338fjsna0ebab076bd8',
+        'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
+      } // above are the GeoDB configurations, so it actually works (yes it's necessary)
+    };
+    try {
+      let response = await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?&offset=2&namePrefix=${city}`,options);
+      const data = await response.json();//turns the city names into JS objects
+      const actualData = data.data;//this helps with mapping the cities later on
+      console.log(data)
+      console.log(data["data"]["name"])
+      console.log(actualData[1])
+      setSearchData(actualData)
+    }
+    catch(error){
+      console.log("error")
+    }
   }
-  catch(error){
-    console.log("error")
-  }
-}
+  
   return (
     <>
     <section>
       <h2>Weather</h2>
-<<<<<<< Updated upstream
-      <form onSubmit={fetchCityWeather}> {/*pretty self-explanatory */}
-=======
       <form onSubmit={fetchCityWeather}>
->>>>>>> Stashed changes
       <input type="text" required placeholder="Enter the city's name" name="city" value={city} onChange={SearchBar}/>
       <button type='submit'><Image src={IconSearch} height={40} width={40} alt="submit" /></button>
       </form>
