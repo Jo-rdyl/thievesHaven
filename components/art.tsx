@@ -80,7 +80,6 @@ function Art() {
         {`
         section {
           height: 100vh;
-          overflow: hidden;
         }
         
         .wrapper {
